@@ -1,0 +1,15 @@
+= tableless_model
+
+Ruby on Rails model without database.
+
+== Instalation
+
+./script/plugin install git://github.com/patrickespake/tableless_model.git
+
+Example
+=======
+
+Example goes here.
+
+
+Copyright (c) 2009 Patrick Espake, released under the MIT license

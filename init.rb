@@ -1,0 +1,1 @@
+require 'tableless_model'
