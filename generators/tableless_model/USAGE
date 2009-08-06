@@ -1,0 +1,5 @@
+Usage:
+
+  script/generate tableless_model Model column1:type column2:type ...
+
+This will create a model that will add the proper columns to your class's table.
