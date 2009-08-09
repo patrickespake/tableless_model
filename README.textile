@@ -59,6 +59,126 @@ end
 </code>
 </pre>
 
+h2. Full Example
+
+h3. Create tableless model
+
+<pre>
+<code>
+./script/generate tableless_model contact name:string telephone:string firm:string email:string message:text
+</code>
+</pre>
+
+h3. Add validations in the model
+
+Open the file app/models/contact.rb and add the validations:
+
+<pre>
+<code>
+class Contact < TablelessModel
+  column :name, :string
+  column :telephone, :string
+  column :firm, :string
+  column :email, :string
+  column :message, :text
+
+  # Validations
+  validates_presence_of :name, :email, :message
+  validates_format_of   :email, :with => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
+  validates_length_of   :message, :minimum => 3
+end
+</code>
+</pre>
+
+h3. Create the controller
+
+<pre>
+<code>
+./script/generate controller contacts new create
+</code>
+</pre>
+
+Add the code for the actions:
+
+<pre>
+<code>
+class ContactController < ApplicationController
+  def new
+    @contact = Contact.new
+  end
+
+  def create
+    @contact = Contact.new(params[:contact])
+
+    if @contact.save # or @contact.valid?
+      flash[:notice] = "Contact email sent successfully."
+
+      # Send contact email
+      #MyMailer.deliver_contact(@contact)
+
+      redirect_to new_contact_path
+    else
+      render :action => "new"
+    end
+  end
+end
+</code>
+</pre>
+
+h3. Create the routes of contacts
+
+Open the file config/routes.rb and add the line:
+
+<pre>
+<code>
+ActionController::Routing::Routes.draw do |map|
+  map.resources :contacts, :only => [:new, :create]
+  ...
+end
+</code>
+</pre>
+
+h3. Create a contact form
+
+Open the file app/views/contacts/new.html.erb and add the content:
+
+<pre>
+<code>
+<% form_for(@contact) do |f| %>
+  <%= f.error_messages %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :telephone %>
+  <%= f.text_field :telephone %>
+
+  <%= f.label :firm %>
+  <%= f.text_field :firm %>
+
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+
+  <%= f.label :message %>
+  <%= f.text_area :message %>
+
+  <%= f.submit "Send" %>
+<% end %>
+</code>
+</pre>
+
+Delete the file app/views/contacts/create.html.erb.
+
+h3. Run
+
+<pre>
+<code>
+./script/server
+</code>
+</pre>
+
+Open your browser in: "http://localhost:3000/contacts/new":http://localhost:3000/contacts/new
+
 h2. Documentation
 
 "http://lab.patrickespake.com/tableless_model":http://lab.patrickespake.com/tableless_model
