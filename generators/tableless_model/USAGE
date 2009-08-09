@@ -1,15 +1,17 @@
 Description:
-    Stubs out a new tableless model. Pass the model name, either CamelCased or
-    under_scored, and an optional list of attribute pairs as arguments.
+    Stubs out a new tableless model. Pass the tableless model name, either 
+    CamelCased or under_scored, and an optional list of attribute pairs
+    as arguments.
 
-    Attribute pairs are column_name:sql_type arguments specifying the
+    Attribute pairs are column_name:sql_type arguments specifying the tableless
     model's attributes.
 
     You don't have to think up every attribute up front, but it helps to
-    sketch out a few so you can start working with the model immediately.
+    sketch out a few so you can start working with the tableless model
+    immediately.
 
-    This generates a model class in app/models, a unit test in test/unit,
-    a test fixture in test/fixtures/singular_name.yml.
+    This generates a tableless model class in app/models, a unit test in 
+    test/unit, a test fixture in test/fixtures/singular_name.yml.
 
 Examples:
     `./script/generate tableless_model contact`
@@ -21,4 +23,5 @@ Examples:
 
     `./script/generate tableless_model invite name:string body:text email:string`
 
-        creates a Invite model with a string name, text body, and string email.
+        creates a Invite tableless model with a string name, text body,
+        and string email.

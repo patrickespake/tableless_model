@@ -1,4 +1,4 @@
-= tableless_model
+h1. tableless_model
 
 Ruby on Rails model without database.
 
@@ -12,25 +12,39 @@ You don't have to think up every attribute up front, but it helps to sketch out 
 
 This generates a tableless model class in app/models, a unit test in test/unit, a test fixture in test/fixtures/singular_name.yml.
 
-== Instalation
+h2. Instalation
 
+<pre>
+<code>
 ./script/plugin install git://github.com/patrickespake/tableless_model.git
+</code>
+</pre>
 
-== Examples
+h2. Examples
 
-`./script/generate tableless_model contact`
+<pre>
+<code>
+./script/generate tableless_model contact
+</code>
+</pre>
 
   creates an Contact model, test, and fixture:
       Model:      app/models/contact.rb
       Test:       test/unit/contact_test.rb
       Fixtures:   test/fixtures/contacts.yml
 
-`./script/generate tableless_model invite name:string body:text email:string`
+<pre>
+<code>
+./script/generate tableless_model invite name:string body:text email:string
+</code>
+</pre>
 
   creates a Invite tableless model with a string name, text body, and string email.
 
-== ActiveRecord validations working perfectly
+h2. ActiveRecord validations working perfectly
 
+<pre>
+<code>
 class Contact < TablelessModel
   column :name,      :string
   column :telephone, :string
@@ -42,13 +56,15 @@ class Contact < TablelessModel
   validates_format_of   :email, :with => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
   validates_length_of   :message, :minimum => 3
 end
+</code>
+</pre>
 
-== Documentation
+h2. Documentation
 
-http://lab.patrickespake.com/tableless_model
+"http://lab.patrickespake.com/tableless_model":http://lab.patrickespake.com/tableless_model
 
 Copyright (c) 2009 Patrick Espake, released under the MIT license
 
-Site: http://www.patrickespake.com
-Blog: http://blog.patrickespake.com
-Email: mailto:patrickespake@gmail.com
+Site: "http://www.patrickespake.com":http://www.patrickespake.com
+Blog: "http://blog.patrickespake.com":http://blog.patrickespake.com
+Email: "patrickespake@gmail.com":mailto:patrickespake@gmail.com
