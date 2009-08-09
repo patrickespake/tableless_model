@@ -29,8 +29,11 @@ h2. Examples
 </pre>
 
   creates an Contact model, test, and fixture:
+
       Model:      app/models/contact.rb
+
       Test:       test/unit/contact_test.rb
+
       Fixtures:   test/fixtures/contacts.yml
 
 <pre>
