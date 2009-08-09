@@ -28,13 +28,10 @@ h2. Examples
 </code>
 </pre>
 
-  creates an Contact model, test, and fixture:
-
-      Model:      app/models/contact.rb
-
-      Test:       test/unit/contact_test.rb
-
-      Fixtures:   test/fixtures/contacts.yml
+creates an Contact model, test, and fixture:
+* Model:      app/models/contact.rb
+* Test:       test/unit/contact_test.rb
+* Fixtures:   test/fixtures/contacts.yml
 
 <pre>
 <code>
@@ -42,7 +39,7 @@ h2. Examples
 </code>
 </pre>
 
-  creates a Invite tableless model with a string name, text body, and string email.
+creates a Invite tableless model with a string name, text body, and string email.
 
 h2. ActiveRecord validations working perfectly
 
