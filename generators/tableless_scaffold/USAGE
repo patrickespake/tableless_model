@@ -1,0 +1,26 @@
+Description:
+    Tableless scaffolds an entire resource, from model, controller and
+    views, along with a full test suite. The resource is ready to use as a
+    starting point for your RESTful, resource-oriented application.
+
+    Pass the name of the model (in singular form), either CamelCased or
+    under_scored, as the first argument, and an optional list of attribute
+    pairs.
+
+    Attribute pairs are column_name:sql_type arguments specifying the
+    model's attributes.
+
+    You don't have to think up every attribute up front, but it helps to
+    sketch out a few so you can start working with the resource immediately.
+
+    For example, 'tableless_scaffold contact name:string telephone:string firm:string email:string message:text'
+    gives you a model with those three attributes, a controller that handle
+    the create, form to create your contacts, as well as a map.resources :contacts
+    declaration in config/routes.rb.
+
+    If you want to remove all the generated files, run
+    'script/destroy tableless_scaffold ModelName'.
+
+Examples:
+    `./script/generate tableless_scaffold invite`
+    `./script/generate tableless_scaffold contact name:string telephone:string firm:string email:string message:text`
