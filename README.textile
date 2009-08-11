@@ -112,7 +112,7 @@ h3. Run
 </code>
 </pre>
 
-Open your browser in: http://localhost:3000/contacts/new
+Open your browser in: "http://localhost:3000/contacts/new":http://localhost:3000/contacts/new
 
 h2. Full Example Using tableless_model Generator
 
