@@ -21,7 +21,7 @@ class <%= controller_class_name %>Controller < ApplicationController
         format.html {
           # Send <%= class_name %> email
           # MyMailer.deliver_<%= file_name %>(@<%= file_name %>)
-          redirect_to new_<%= table_name %>_path
+          redirect_to new_<%= file_name %>_path
         }
         format.xml  { render :xml => @<%= file_name %>, :status => :created, :location => @<%= file_name %> }
       else
