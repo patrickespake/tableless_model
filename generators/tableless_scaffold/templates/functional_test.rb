@@ -11,6 +11,6 @@ class <%= controller_class_name %>ControllerTest < ActionController::TestCase
       post :create, :<%= file_name %> => { }
     end
 
-    assert_redirected_to new_<%= table_name %>_path
+    assert_redirected_to new_<%= file_name %>_path
   end
 end
