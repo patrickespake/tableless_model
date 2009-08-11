@@ -69,7 +69,7 @@ class TablelessScaffoldGenerator < Rails::Generator::NamedBase
       m.template('helper.rb',          File.join('app/helpers',     controller_class_path, "#{controller_file_name}_helper.rb"))
       m.template('helper_test.rb',     File.join('test/unit/helpers',    controller_class_path, "#{controller_file_name}_helper_test.rb"))
 
-      m.route_resources controller_file_name, :only => [:new, :create]
+      m.route_resources controller_file_name
 
       m.dependency 'tableless_model', [name] + @args, :collision => :skip
     end
