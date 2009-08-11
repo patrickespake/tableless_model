@@ -73,6 +73,23 @@ end
 
 ./script/generate tableless_scaffold contact name:string telephone:string firm:string email:string message:text
 
+=== Add validations in the model
+
+Open the file app/models/contact.rb and add the validations:
+
+class Contact < TablelessModel
+  column :name, :string
+  column :telephone, :string
+  column :firm, :string
+  column :email, :string
+  column :message, :text
+
+  # Validations
+  validates_presence_of :name, :email, :message
+  validates_format_of   :email, :with => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
+  validates_length_of   :message, :minimum => 3
+end
+
 === Run
 
 ./script/server
