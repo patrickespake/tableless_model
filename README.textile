@@ -76,6 +76,33 @@ Examples:
 </code>
 </pre>
 
+h2. Types of columns available in the tableless_model
+
+<pre>
+<code>
+class ModelName < TablelessModel
+  column :column_name1, :column_type
+  column :column_name2, :column_type
+  column :column_name3, :column_type
+  column :column_nameN, :column_type
+  ...
+end
+</code>
+</pre>
+
+Types of columns (column_type) available:
+* :string
+* :text
+* :integer
+* :float
+* :decimal
+* :datetime
+* :timestamp
+* :time
+* :date
+* :binary
+* :boolean
+
 h2. ActiveRecord validations working perfectly
 
 <pre>

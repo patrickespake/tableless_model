@@ -53,6 +53,29 @@ Examples:
   ./script/generate tableless_scaffold invite
   ./script/generate tableless_scaffold contact name:string telephone:string firm:string email:string message:text
 
+== Types of columns available in the tableless_model
+
+class ModelName < TablelessModel
+  column :column_name1, :column_type
+  column :column_name2, :column_type
+  column :column_name3, :column_type
+  column :column_nameN, :column_type
+  ...
+end
+
+Types of columns (column_type) available:
+  :string
+  :text
+  :integer
+  :float
+  :decimal
+  :datetime
+  :timestamp
+  :time
+  :date
+  :binary
+  :boolean
+
 == ActiveRecord validations working perfectly
 
 class Contact < TablelessModel
