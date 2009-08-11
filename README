@@ -12,7 +12,7 @@ The main utility is used in forms that do not need a database, but needs the val
 
 == Generators
 
-=== tableless_model
+=== tableless_model Generator
 
 Stubs out a new tableless model. Pass the tableless model name, either CamelCased or under_scored, and an optional list of attribute pairs as arguments.
 
@@ -34,7 +34,7 @@ Examples:
 
   creates a Invite tableless model with a string name, text body, and string email.
 
-=== tableless_scaffold
+=== tableless_scaffold Generator
 
 Tableless scaffolds an entire resource, from model, controller and views, along with a full test suite. The resource is ready to use as a starting point for your RESTful, resource-oriented application.
 
