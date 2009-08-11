@@ -19,7 +19,7 @@ Description:
     declaration in config/routes.rb.
 
     If you want to remove all the generated files, run
-    'script/destroy tableless_scaffold ModelName'.
+    'script/destroy scaffold ModelName'.
 
 Examples:
     `./script/generate tableless_scaffold invite`

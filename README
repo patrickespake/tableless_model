@@ -4,6 +4,16 @@ Ruby on Rails model without database.
 
 With all the power of ActiveRecord and validations.
 
+The main utility is used in forms that do not need a database, but needs the validation of ActiveRecord, form_for and RESTful routes. For example contact form.
+
+== Instalation
+
+./script/plugin install git://github.com/patrickespake/tableless_model.git
+
+== Generators
+
+=== tableless_model
+
 Stubs out a new tableless model. Pass the tableless model name, either CamelCased or under_scored, and an optional list of attribute pairs as arguments.
 
 Attribute pairs are column_name:sql_type arguments specifying the tableless model's attributes.
@@ -12,22 +22,36 @@ You don't have to think up every attribute up front, but it helps to sketch out 
 
 This generates a tableless model class in app/models, a unit test in test/unit, a test fixture in test/fixtures/singular_name.yml.
 
-== Instalation
-
-./script/plugin install git://github.com/patrickespake/tableless_model.git
-
-== Examples
-
-`./script/generate tableless_model contact`
+Examples:
+  ./script/generate tableless_model contact
 
   creates an Contact model, test, and fixture:
       Model:      app/models/contact.rb
       Test:       test/unit/contact_test.rb
       Fixtures:   test/fixtures/contacts.yml
 
-`./script/generate tableless_model invite name:string body:text email:string`
+  ./script/generate tableless_model invite name:string body:text email:string
 
   creates a Invite tableless model with a string name, text body, and string email.
+
+=== tableless_scaffold
+
+Tableless scaffolds an entire resource, from model, controller and views, along with a full test suite. The resource is ready to use as a starting point for your RESTful, resource-oriented application.
+
+Pass the name of the model (in singular form), either CamelCased or under_scored, as the first argument, and an optional list of attribute pairs.
+
+Attribute pairs are column_name:sql_type arguments specifying the model's attributes.
+
+You don't have to think up every attribute up front, but it helps to sketch out a few so you can start working with the resource immediately.
+
+For example, 'tableless_scaffold contact name:string telephone:string firm:string email:string message:text'
+gives you a model with those three attributes, a controller that handle the create, form to create your contacts, as well as a map.resources :contacts declaration in config/routes.rb.
+
+If you want to remove all the generated files, run 'script/destroy scaffold ModelName'.
+
+Examples:
+  ./script/generate tableless_scaffold invite
+  ./script/generate tableless_scaffold contact name:string telephone:string firm:string email:string message:text
 
 == ActiveRecord validations working perfectly
 
@@ -43,7 +67,19 @@ class Contact < TablelessModel
   validates_length_of   :message, :minimum => 3
 end
 
-== Full Example
+== Full Example Using tableless_scaffold Generator
+
+=== Create tableless scaffold
+
+./script/generate tableless_scaffold contact name:string telephone:string firm:string email:string message:text
+
+=== Run
+
+./script/server
+
+Open your browser in: http://localhost:3000/contacts/new
+
+== Full Example Using tableless_model Generator
 
 === Create tableless model
 
